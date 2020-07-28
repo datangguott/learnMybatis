@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dtg.mapper.BlogMapper">
+    <select id="selectBlog" resultType="com.dtg.bean.Blog">
+      select * from Blog where id = #{id}
+    </select>
+
+
+    <insert id="addBlog" useGeneratedKeys="true" keyProperty="id">
+      insert into Blog (title,content) values (#{title},#{content})
+    </insert>
+
+    <delete id="deleteBlogById">
+      delete from  Blog where id=#{id}
+    </delete>
+
+    <update id="updateBlog">
+      update  Blog set title= #{title},content=#{content}  where id=#{id}
+    </update>
+
+</mapper>
